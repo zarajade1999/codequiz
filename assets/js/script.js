@@ -16,15 +16,16 @@ var highScoreArr=[]
  // function to start quiz
  function startQuiz () {
     if(index === myQuestions.length){
-        endQuiz()
+        endQuiz() // checks that the length is equal to the index, using index to move to the next question
     }
 
     startButton.style.display="none"
-   quizContainer.classList.replace("hide","show")
+   quizContainer.classList.replace("hide","show") //classList gives us back a list of all the classes, 'replace' allows us to replace anything called 'hide' or 'show
+
 
     questionEl.textContent=myQuestions[index].question
-    answerbtns.innerHTML=""
-    for (let i = 0; i < myQuestions[index].answers.length; i++) {
+    answerbtns.innerHTML="" // This means you can pass entire html tags 
+    for (let i = 0; i < myQuestions[index].answers.length; i++) { // Creates a loop so through the answers for each question so i can create a button
         const btn= document.createElement("button")
         btn.setAttribute("class", "quiz-btn")
         btn.textContent=myQuestions[index].answers[i]
@@ -44,20 +45,21 @@ if(timerCountdown == 0) {
     }, 1000);
 }
 function checkAnswer(answer){
+    
+    if(answer === myQuestions[index].correct){ // Anything with .correct will match the question array
     answerStatus.textContent="Correct!"
     answerStatus.style.color="green"
-    if(answer === myQuestions[index].correct){
-        setTimeout(()=>{
-         answerStatus.innerHTML=""
-        index++
-        score++
-        startQuiz()
-    },1200)
+    setTimeout(function() { // Preventing a code from running for a specific amount of time 
+     answerStatus.innerHTML=""
+     index++
+     score++
+     startQuiz()
+    },1200) // Adds a delay so you can see the question you have answered
 
     }else{ // Shows when the person has got an answer incorrect and takes the timer down by 5 seconds
         answerStatus.textContent="Incorrect!"
         answerStatus.style.color="red"
-        setTimeout(()=>{
+        setTimeout(function(){
         answerStatus.innerHTML=""
         index++
         timerCountdown-=5
@@ -82,19 +84,19 @@ function storage(){
             initials:initials,
             score:score
         }
-        highScoreArr.push(userObj) 
+        highScoreArr.push(userObj) // push is when you want to add item to the end of array
         localStorage.setItem("highScores", JSON.stringify(highScoreArr)) //turns the object back into a string
-        window.location.assign("scorePage.html")
+        window.location.assign("scorePage.html") //helps redirect to another html page
     }
 }
   
 // button to start quiz with keyboard event
-startButton.addEventListener("click", ()=>{
+startButton.addEventListener("click", function() {
     startQuiz()
     setTimeLeft()
 });  
 
-answerbtns.addEventListener("click", ()=>{
+answerbtns.addEventListener("click", function() {
     var userChoice= this.event.target.textContent
     checkAnswer(userChoice);
 })
