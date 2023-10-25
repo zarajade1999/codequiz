@@ -30,10 +30,8 @@ var highScoreArr=[]
         btn.setAttribute("class", "quiz-btn")
         btn.textContent=myQuestions[index].answers[i]
         answerbtns.append(btn)
-        
     }
 }
-    
 // function to start timer
 function setTimeLeft() {
     timer = setInterval(function() {  //This defines the timer and gives it a value
