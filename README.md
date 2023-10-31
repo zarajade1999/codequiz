@@ -15,3 +15,15 @@ It solves the problem of not being able to move onto the next page after complet
 
 - What did you learn?
 I learnt how to structure my functions appropriately according to the task.
+
+Here are screenshots of my website 
+C:\Users\zaraj\bootcamp\Homework\codequiz\assets\images\finishquizpage.png
+C:\Users\zaraj\bootcamp\Homework\codequiz\assets\images\startquizpage.png
+C:\Users\zaraj\bootcamp\Homework\codequiz\assets\images\firstquestionpage.png
+C:\Users\zaraj\bootcamp\Homework\codequiz\assets\images\scoreimg.png
+
+Here is a link to my code quiz:
+https://zarajade1999.github.io/codequiz/
+
+
+
